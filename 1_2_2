@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+	public String solution(String str) {
+		String answer = "";
+		
+		// for-each를 사용해서 String str 문제 해결
+		for(char x : str.toCharArray()) {
+			// Ascii code로 푸는 방법
+			// 대문자 : A(65) ~ Z(90) , 소문자 : a(97) ~ z(122)
+			// 숫자 +-32만큼 하면 소문자<-> 대문자 가능
+			
+			// char는 사실 정수형
+			if (x>= 65 && x<= 90) { // 대문자
+				answer += (char)(x+32);
+				continue;
+			}
+			if (x>= 97 && x<=122) {
+				answer += (char)(x-32); // 캐스팅을 하지 않으면 숫자로 뜨기 때문에 앞에 (char) 붙여줘야 함
+				continue;
+			}
+
+			
+		}
+		
+		return answer;
+	}
+	
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		
+		System.out.println(T.solution(str));
+		
+
+	}
+
+}
