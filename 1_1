@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class Main {
+	public int solution(String str, char t) {
+		int answer = 0;
+		
+		// 우선 케이스에서 스트링이 대소문자를 구분하지 않기 때문에 바꿔주는게 좋음.
+		// 통일을 위해서
+		str = str.toUpperCase();
+		t = Character.toUpperCase(t);
+		// t라는 캐릭터 변수를 통해 받아서 대문자로 바꿔주기
+		// System.out.println(str);
+		
+		for(int i=0; i<str.length();i++) {
+			// index로 문자열 끝까지 순회돌면서 찾는 것
+			if(str.charAt(i) == t) {
+				answer++;
+			}
+		}
+		
+		return answer;
+	}
+	
+	public static void main(String[] args) {
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str = kb.next();
+		
+		char c = kb.next().charAt(0);
+		System.out.println(T.solution(str,  c));
+	}
+}
